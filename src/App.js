@@ -9,6 +9,7 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
+          <Route path="/login" element={<h1>Login page temchi</h1>} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/" element={<Home />} />
         </Routes>
