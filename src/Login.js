@@ -17,7 +17,7 @@ function Login() {
     const changePassword =(event) => {
       setPassword(event.target.value)
     }
-    const signIn = (event) => {
+    const register = (event) => {
         event.preventDefault()
         auth
         .createUserWithEmailAndPassword(email,password)
@@ -31,10 +31,12 @@ function Login() {
         })
         .catch(error => alert(error.message))
     }
-    const register = (event) => {
+    const signIn = (event) => {
         event.preventDefault()
-        //firebase register 
-
+        auth.signInWithEmailAndPassword(email,password)
+        .then(auth=> {
+          navigate('/')
+        }).catch(error => alert (error.message))
     }
     
   return (
