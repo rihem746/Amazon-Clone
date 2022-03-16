@@ -3,15 +3,16 @@ import Header from "./Header";
 import "./App.css";
 import Home from "./Home";
 import Checkout from "./Checkout";
+import Login from "./Login";
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+      
         <Routes>
-          <Route path="/login" element={<h1>Login page temchi</h1>} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<h1><Login/> </h1>} />
+          <Route path="/checkout" element={<div><Header/><Checkout/></div>} />
+          <Route path="/" element={<div><Header/><Home /></div>} />
         </Routes>
       </div>
     </Router>
