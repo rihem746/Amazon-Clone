@@ -7,8 +7,7 @@ import { useState } from 'react';
 import CurrencyFormat from 'react-currency-format';
 import {getBasketTotal} from "./reducer";
 import { useEffect } from 'react';
-import axios from 'axios';
-
+import axios from './axios';
 
 
 function Payment() {
@@ -37,6 +36,8 @@ function Payment() {
        getClientSecret();
    },[basket])
    
+   console.log('THE SECRET IS >>>', clientSecret)
+
    const handleSubmit = async (event) => {
        //do all here :
        event.preventDefault();
@@ -52,6 +53,11 @@ function Payment() {
          SetSucceeded(true);
          setError(false);
          setProcessing(false);
+
+         dispatch({
+            type: 'EMPTY_BASKET'
+        })
+
          navigate('/orders')
        })
    }
